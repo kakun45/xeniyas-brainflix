@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 *,
 *::before,
 *::after {
@@ -6,5 +8,5 @@
 }
 
 body {
-  color: #323232;
-}/*# sourceMappingURL=App.css.map */
+  color: $primary-brainFlix-black;
+}
