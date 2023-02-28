@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 *,
 *::before,
@@ -9,4 +10,61 @@
 
 body {
   color: $primary-brainFlix-black;
+}
+
+h1 {
+  // for mobile
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  @include tablet {
+    font-size: 2.0625rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+  }
+}
+
+h2 {
+  // for mobile
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+  }
+}
+
+h3 {
+  // for mobile
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+p {
+  // for mobile
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+  @include tablet {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 400;
+  }
+}
+
+label,
+button {
+  // for mobile
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  // h3 on tablet & up
 }
