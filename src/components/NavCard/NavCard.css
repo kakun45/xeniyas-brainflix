@@ -1,1 +1,11 @@
-/*# sourceMappingURL=NavCard.css.map */
+.card {
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+
+.card__img {
+  width: 7rem;
+  height: 5rem;
+  border-radius: 4px;
+}/*# sourceMappingURL=NavCard.css.map */

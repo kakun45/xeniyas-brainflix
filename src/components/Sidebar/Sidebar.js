@@ -18,15 +18,16 @@ const Sidebar = (props) => {
     <section className="sidebar">
       <h2>NEXT VIDEOS</h2>
       <ul>
-        <li>
-          {props.videoList.map(video => 
-          <NavCard
-            title={video.title}
-            channel={video.channel}
-            image={video.image}
-          />
-          )}
-        </li>
+        {props.videoList.map((video) => (
+          <li className="card__child">
+            <NavCard
+              title={video.title}
+              channel={video.channel}
+              image={video.image}
+            />{" "}
+          </li>
+        ))}
+
         {/* {props.videoList.map((video) => (
           <li key={video.id} onClick={() => selectVideo(video.id)}>
             {video.title} 
