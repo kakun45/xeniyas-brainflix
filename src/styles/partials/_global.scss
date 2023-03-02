@@ -8,10 +8,6 @@
   margin: 0;
 }
 
-body {
-  color: $primary-brainFlix-black;
-}
-
 h1 {
   // for mobile
   font-size: 1.5rem;
@@ -61,10 +57,71 @@ p {
 }
 
 label,
-button {
+.button {
   // for mobile
-  font-size: 0.625rem;
+  font-size: 0.725rem;
   line-height: 1.25rem;
-  font-weight: 700;
+  font-weight: 400;
   // h3 on tablet & up
+}
+
+body {
+  color: $primary-brainFlix-black;
+  font-family: $font;
+  font-weight: 400;
+}
+
+// margin on the sides and around main div:
+// 16px mobile, 24/36px tablet, auto desktop
+.header,
+.main {
+  margin: 1rem;
+  @include tablet {
+    margin: 1.5rem;
+  }
+  @include desktop {
+    margin: auto;
+  }
+}
+
+.logo {
+  max-height: 1.5625rem;
+  max-width: 7.5rem;
+  margin: 0 0 1rem;
+  @include tablet {
+    margin: 0;
+  }
+}
+
+.button {
+  height: 2.5rem;
+  min-width: 100%;
+  border-radius: 0.25rem;
+  border: none;
+  color: $primary-white;
+  background-color: $primary-brainFlix-blue;
+  position: relative;
+  margin: 1rem 0;
+  @include tablet {
+    padding: 0rem 2rem;
+    min-width: 9.375rem;
+  }
+}
+
+// AVATAR
+.comments__avatar {
+  background-color: gray;
+  background-size: cover;
+  border-radius: 50%;
+  width: 6vh;
+  height: 6vh;
+  @include tablet {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.search__avatar--img {
+  @extend .comments__avatar;
+  background-image: url("../../assets/images/Mohan-muruge.jpg");
 }
