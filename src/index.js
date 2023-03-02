@@ -6,10 +6,10 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // to remove double lines from  console.log(): https://stackoverflow.com/questions/62185425/why-is-console-log-logging-twice-in-react-js
-  // <React.StrictMode>
+  // comment out to remove double lines from  console.log(): https://stackoverflow.com/questions/62185425/why-is-console-log-logging-twice-in-react-js
+  <React.StrictMode>
   <App />
-  // </React.StrictMode>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
