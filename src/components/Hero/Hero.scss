@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+
+.hero {
+  width: 100%;
+  // height: 50%;
+  // background-color: $secondary-brainFlix-darkBlack;
+  &-img {
+    width: 100%;
+  }
+}

@@ -74,6 +74,7 @@ body {
 // margin on the sides and around main div:
 // 16px mobile, 24/36px tablet, auto desktop
 .header,
+.sidebar,
 .main {
   margin: 1rem;
   @include tablet {
@@ -126,4 +127,9 @@ body {
 .search__avatar--img {
   @extend .comments__avatar;
   background-image: url("../../assets/images/Mohan-muruge.jpg");
+}
+
+.--faded {
+  color: $primary-silver;
+  // color: $secondary-mercury;
 }

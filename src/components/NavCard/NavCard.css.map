@@ -1,1 +1,1 @@
-{"version":3,"sources":["NavCard.scss","NavCard.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,mBAAA;EACA,YAAA;ACCF;;ADCA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;ACEF","file":"NavCard.css"}
+{"version":3,"sources":["NavCard.scss","NavCard.css","../../styles/partials/_variables.scss"],"names":[],"mappings":"AAEA;EACE,aAAA;EACA,mBAAA;EACA,wBAAA;ACDF;ADEE;EACE,yBEMgB;EFLhB,kBAAA;EACA,WAAA;EACA,YAAA;EACA,kBAAA;ACAJ;ADEE;EACE,qBAAA;ACAJ","file":"NavCard.css"}

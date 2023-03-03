@@ -1,3 +1,6 @@
 .card__child {
   list-style-type: none;
+}
+.card__child-holder {
+  padding-left: 0;
 }/*# sourceMappingURL=Sidebar.css.map */
