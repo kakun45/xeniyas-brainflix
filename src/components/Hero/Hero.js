@@ -4,7 +4,9 @@ import "./Hero.scss";
 const Hero = ({ featuredVideo }) => {
   return (
     <div className="hero">
-      <img className="hero-img" src={featuredVideo.image} />
+      <div className="hero-contaier">
+        <img className="hero-img" src={featuredVideo.image} />
+      </div>
     </div>
   );
 };

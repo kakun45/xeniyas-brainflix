@@ -1,0 +1,71 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.main__subtitle {
+  display: flex;
+  justify-content: space-between;
+  &-child {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.main__join-conv {
+  display: flex;
+  gap: 1rem;
+}
+
+.main__form {
+  position: relative;
+  width: 90%;
+}
+
+.comments__textarea {
+  width: 100%;
+  height: 6rem;
+}
+input[type="text"],
+textarea {
+  width: 100%;
+  // for mobile
+  height: 2.25rem; // 36px
+
+  @include tablet {
+    height: 3rem; // 48px
+  }
+  // color: ; // this is on input text, don't touch it!
+  font-family: $font;
+  border-radius: 0.25rem; // 4px
+  border: 1px solid $secondary-mercury;
+  background-color: $secondary-alabaster;
+  margin: 0.25rem 0 1.25rem; // 4px on all screen Sz
+  // for mobile
+  padding: 0.75rem;
+
+  @include tablet {
+    padding: 1rem;
+  }
+}
+
+// extend didn't work: todo: why?
+// .search__avatar--img-bottom {
+//   @extend .search__avatar--img;
+//   margin-top: 1rem;
+// }
+.search__avatar--img.--bottom {
+  margin-top: 1rem;
+  width: 7vh;
+}
+// Active error-state input field
+.error-state {
+  border: 1px solid $error-state;
+  color: $error-state;
+}
+
+// Active state input field
+textarea:focus,
+input:focus {
+  outline: solid 2px $primary-brainFlix-blue;
+}

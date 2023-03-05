@@ -62,13 +62,41 @@ label,
   font-size: 0.725rem;
   line-height: 1.25rem;
   font-weight: 400;
-  // h3 on tablet & up
+  // use h3 on: tablet & up
 }
 
 body {
   color: $primary-brainFlix-black;
   font-family: $font;
   font-weight: 400;
+}
+
+// padding before/after headlines:
+.--headline {
+  // for mobile needs to collaps -> must use margin
+  margin: 1.5rem 0 1rem; // 24px top, 0 l+r 16px bottom
+  @include tablet {
+    padding: 2.25rem 0 1.5rem; // 36px, 0 24px
+  }
+}
+
+.divider {
+  border-top: 1px $secondary-mercury solid;
+  margin: 1rem 0;
+  @include tablet {
+    // todo: not needed?
+    // margin: 2rem 0;
+    // &--first {
+    //   margin-top: 4rem;
+    // }
+  }
+}
+
+// displys only on mobile anything above -> hidden
+.--mobile {
+  @include tablet {
+    display: none;
+  }
 }
 
 // margin on the sides and around main div:
@@ -95,7 +123,7 @@ body {
 }
 
 .button {
-  height: 2.5rem;
+  height: 2.5rem; //40px for all screen Sz
   min-width: 100%;
   border-radius: 0.25rem;
   border: none;
@@ -103,9 +131,30 @@ body {
   background-color: $primary-brainFlix-blue;
   position: relative;
   margin: 1rem 0;
+  &:hover {
+    background-color: $secondary-brainFlix-darkBlue;
+  }
+  &--icon {
+    position: absolute;
+    left: 0.5rem;
+  }
   @include tablet {
     padding: 0rem 2rem;
     min-width: 9.375rem;
+  }
+}
+
+// new, todo go over
+.comment-button {
+  // for mobile
+  margin: 0 0 0.5rem;
+  // border: 0px solid $primary-brainFlix-blue;
+  @include tablet {
+    width: 10rem;
+    min-width: 10rem;
+    padding: 0 2rem;
+    position: absolute;
+    right: 1rem; // todo: move the button in
   }
 }
 

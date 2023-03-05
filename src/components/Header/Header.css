@@ -52,12 +52,6 @@
   position: absolute;
   left: 0.5rem;
 }
-
-.button--upload {
-  position: absolute;
-  left: 0.5rem;
-}
-
 .search-parent {
   width: 100%;
   display: flex;

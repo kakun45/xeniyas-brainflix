@@ -1,3 +1,4 @@
+import details from "../../data/video-details.json";
 import "./Sidebar.scss";
 import NavCard from "../NavCard/NavCard";
 import Hero from "../Hero/Hero";
@@ -5,15 +6,14 @@ import Hero from "../Hero/Hero";
 /* filter out and provide into by id */
 const Sidebar = (props) => {
   const selectVideo = (id) => {
-    const featuredVideo = props.videoList.find((video) => video.id === id);
+    const featuredVideo = details.find((video) => video.id === id);
     props.setFeaturedVideo(featuredVideo);
   };
-  // console.log(props.videoList);
 
   return (
     <div>
       <section className="sidebar">
-        <h2 className="--faded">NEXT VIDEOS</h2>
+        <h2 className="--faded --headline">NEXT VIDEOS</h2>
 
         {/* change it when selected video and */}
         <ul className="card__child-holder">

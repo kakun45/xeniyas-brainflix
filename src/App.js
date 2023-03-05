@@ -12,12 +12,12 @@ import Details from "./components/Details/Details";
 function App() {
   const [videoList, setVideoList] = useState(videos);
   // put a featured video in a state to init it
-  const [featuredVideo, setFeaturedVideo] = useState(details[0]); // todo: maybe use an .id no I want entire obj
-  // console.log(featuredVideo);
+  const [featuredVideo, setFeaturedVideo] = useState(details[0]); // maybe use an .id? but now, I want entire obj
 
   return (
     <div className="content-holder">
       <Header />
+  {/* when add Routs rander Pages in here under Header */}
       <Hero featuredVideo={featuredVideo} />
       <Details featuredVideo={featuredVideo} />
 

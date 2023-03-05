@@ -15,7 +15,7 @@ function Header() {
         </div>
         <div className="search__avatar--img"></div>
         <button className="button">
-          <img src={upload} className="button--upload"></img>
+          <img src={upload} className="button--icon"></img>
           UPLOAD
         </button>
       </div>
