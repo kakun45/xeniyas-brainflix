@@ -76,23 +76,26 @@ body {
   // for mobile needs to collaps -> must use margin
   margin: 1.5rem 0 1rem; // 24px top, 0 l+r 16px bottom
   @include tablet {
-    padding: 2.25rem 0 1.5rem; // 36px, 0 24px
+    margin: 2.25rem 0 1.5rem; // don't use padding
   }
 }
 
 .divider {
-  border-top: 1px $secondary-mercury solid;
+  border: 1px $secondary-mercury solid;
   margin: 1rem 0;
-  @include tablet {
-    // todo: not needed?
-    // margin: 2rem 0;
-    // &--first {
-    //   margin-top: 4rem;
-    // }
+}
+
+.divider-desktop {
+  @extend .divider;
+  display: none;
+  @include desktop {
+    display: flex;
+    margin-top: 0;
+    // border-top wont work, don't use it
   }
 }
 
-// displys only on mobile anything above -> hidden
+// displys only on mobile, on anything bigger - hidden
 .--mobile {
   @include tablet {
     display: none;
@@ -106,10 +109,7 @@ body {
 .main {
   margin: 1rem;
   @include tablet {
-    margin: 1.5rem;
-  }
-  @include desktop {
-    margin: auto;
+    margin: 1rem 2.5rem 1rem;
   }
 }
 
@@ -142,43 +142,48 @@ body {
     padding: 0rem 2rem;
     min-width: 9.375rem;
   }
-}
-
-// new, todo go over
-.comment-button {
-  // for mobile
-  margin: 0 0 0.5rem;
-  // border: 0px solid $primary-brainFlix-blue;
+  &-comment {
+    // for mobile
+    margin: 0;
+    @include tablet {
+      width: 10rem;
+      min-width: 10rem;
+      padding: 0 2rem;
+    }
+  }
+  &-upload {
+    // for mobile
+    margin: 1rem 0 0;
+  }
   @include tablet {
-    width: 10rem;
-    min-width: 10rem;
-    padding: 0 2rem;
-    position: absolute;
-    right: 1rem; // todo: move the button in
+    margin: 0;
   }
 }
 
 // AVATAR
+// gray default avatar
 .comments__avatar {
-  background-color: gray;
+  background-color: $secondary-mercury;
   background-size: cover;
   border-radius: 50%;
-  width: 6vh;
-  height: 6vh;
+  width: 2.25rem;
+  height: 2.25rem;
   @include tablet {
     display: flex;
-    order: 1;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 
+// avatar with a head
 .search__avatar--img {
   @extend .comments__avatar;
   background-image: url("../../assets/images/Mohan-muruge.jpg");
+  @include tablet {
+    order: 1;
+  }
 }
 
 .--faded {
   color: $primary-silver;
-  // color: $secondary-mercury;
 }

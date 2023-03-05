@@ -17,15 +17,17 @@ function App() {
   return (
     <div className="content-holder">
       <Header />
-  {/* when add Routs rander Pages in here under Header */}
+      {/* when add Routs rander Pages in here under Header */}
       <Hero featuredVideo={featuredVideo} />
-      <Details featuredVideo={featuredVideo} />
-
-      <Sidebar
-        videoList={videoList}
-        setFeaturedVideo={setFeaturedVideo}
-        featuredVideo={featuredVideo}
-      />
+      <section className="desktop-container">
+        <Details featuredVideo={featuredVideo} />
+        <hr className="divider-desktop" />
+        <Sidebar
+          videoList={videoList}
+          setFeaturedVideo={setFeaturedVideo}
+          featuredVideo={featuredVideo}
+        />
+      </section>
     </div>
   );
 }

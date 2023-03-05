@@ -55,8 +55,12 @@
     flex-wrap: wrap;
     @include tablet {
       display: flex;
+      flex-wrap: nowrap;
       align-items: center;
       gap: 1rem;
+    }
+    @include desktop {
+      justify-content: flex-end;
     }
   }
 }

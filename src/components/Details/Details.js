@@ -6,8 +6,7 @@ import Comment from "../Comment/Comment";
 
 const Details = ({ featuredVideo }) => {
   // Comments Section
-  const comments_cnt = featuredVideo.comments.length;
-
+  const commentsArr = featuredVideo.comments;
   // Timestamp is in ms since epoch
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");
   const stream = featuredVideo.video; // "https://project-2-api.herokuapp.com/stream"
@@ -17,7 +16,7 @@ const Details = ({ featuredVideo }) => {
       <hr className="divider --mobile" />
       <div className="main__subtitle">
         <div className="main__subtitle-child">
-          <h2 className="main__channel ">By {featuredVideo.channel}</h2>
+          <h2 className="main__channel">By {featuredVideo.channel}</h2>
           <p className="main__date --faded">{date}</p>
         </div>
         <div className="main__subtitle-child">
@@ -32,12 +31,12 @@ const Details = ({ featuredVideo }) => {
           </div>
         </div>
       </div>
-      <hr className="divider" />
+      <hr className="divider full-width" />
       <p className="main__description">{featuredVideo.description}</p>
 
       <section className="main__comments">
         <h3 className="main__comments-count --headline">
-          {comments_cnt} Comments
+          {commentsArr.length} Comments
         </h3>
 
         <div className="main__join-conv">
@@ -46,27 +45,31 @@ const Details = ({ featuredVideo }) => {
             <label className="comment__label --faded" htmlFor="comment">
               JOIN THE CONVERSATION
             </label>
-            <textarea
-              className="comments__textarea"
-              type="text"
-              // name=""
-              id="comment"
-              placeholder="Add a new comment"></textarea>
-            <br />
-            <button className="button comment-button">
-              <img src={icon} className="button--icon"></img>
-              COMMENT
-            </button>
+            <div className="comments__input">
+              <textarea
+                className="comments__textarea"
+                type="text"
+                // name=""
+                id="comment"
+                placeholder="Add a new comment"></textarea>
+              <br />
+              <button className="button button-comment">
+                <img src={icon} className="button--icon"></img>
+                COMMENT
+              </button>
+            </div>
           </form>
         </div>
 
         <hr className="divider divider--first" />
 
         <section className="comments">
-          <img className="default-avatar" />
-          <Comment />
+          {commentsArr.map((commentObj, index) => {
+            return <Comment 
+            key={index} 
+            commentObj={commentObj} />;
+          })}
         </section>
-        <div className="default-comments"></div>
       </section>
     </section>
   );

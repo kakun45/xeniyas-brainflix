@@ -2,7 +2,6 @@ import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import "./Header.scss";
 
 import upload from "../../assets/images/icons/upload.svg";
-// import magnifyGlass from "../../assets/images/icons/search.svg";
 
 function Header() {
   return (
@@ -14,7 +13,7 @@ function Header() {
           <input className="search" placeholder="Search" />
         </div>
         <div className="search__avatar--img"></div>
-        <button className="button">
+        <button className="button button-upload">
           <img src={upload} className="button--icon"></img>
           UPLOAD
         </button>

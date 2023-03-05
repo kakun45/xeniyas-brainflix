@@ -60,7 +60,13 @@
 @media screen and (min-width: 768px) {
   .search-parent {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 1rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .search-parent {
+    justify-content: flex-end;
   }
 }/*# sourceMappingURL=Header.css.map */

@@ -2,7 +2,12 @@
   .content-holder {
     width: 80%;
     margin: auto;
-    margin-top: 1rem;
     border: red solid 1px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .desktop-container {
+    display: flex;
   }
 }/*# sourceMappingURL=App.css.map */

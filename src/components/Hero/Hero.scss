@@ -4,18 +4,44 @@
 .hero {
   width: 100%;
   &-contaier {
-    height: 12.5rem;
-    background-color: $secondary-brainFlix-darkBlack;
     text-align: center;
-  }
-  &-img {
-    width: 100%;
-    height: 100%;
     @include tablet {
-      width: 80%;
+      /* width is set as 100% here. any width can be specified as per requirement */
+      width: 100%;
+      padding-top: 56.25%;
+      height: 0px;
+      position: relative;
+      background-color: $secondary-brainFlix-darkBlack;
     }
     @include desktop {
-      width: 70%;
+      width: 101vw;
+      left: -13%;
     }
   }
+  &-img {
+    width: 100vw;
+    @include tablet {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    @include desktop {
+      width: 100%;
+    }
+  }
+}
+
+.controls {
+  // height: 16px;
+  width: 50%;
+}
+
+.controls > * {
+//   // float: left;
+  width: 3.90625%;
+//   // height: 100%;
+//   // margin-left: 0.1953125%;
+//   display: block;
 }

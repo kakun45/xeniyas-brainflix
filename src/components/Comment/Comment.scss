@@ -1,0 +1,28 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.comments {
+  &__child {
+    display: flex;
+    gap: 1rem;
+  }
+  &__author {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__contentHolder {
+    width: 93%; // to not flatten a gray circle avatar
+  }
+  &__titleHolder {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem; // 1rem;
+  }
+  &__input {
+    @include tablet {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+    }
+  }
+}
