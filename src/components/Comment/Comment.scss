@@ -16,7 +16,7 @@
   &__titleHolder {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem; // 1rem;
+    margin-bottom: 0.5rem; 
   }
   &__input {
     @include tablet {

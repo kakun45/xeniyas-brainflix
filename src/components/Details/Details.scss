@@ -32,7 +32,6 @@ textarea {
   min-width: 15rem;
   min-height: 2.25rem;
   font-family: $font;
-  // line-height: 1rem; // vertical-align of the text
   border-radius: 0.25rem;
   border: 1px solid $secondary-mercury;
   background-color: $secondary-alabaster;
@@ -55,7 +54,7 @@ textarea {
 // .search__avatar--img-bottom {
 //   @extend .search__avatar--img;
 //   margin-top: 1rem;
-// }
+// } // needed a workaround:
 .search__avatar--img.--bottom {
   margin-top: 1rem;
   @include tablet {

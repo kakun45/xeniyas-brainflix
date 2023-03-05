@@ -1,9 +1,13 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .card {
   display: flex;
   align-items: center;
-  margin: 1rem 1rem 1rem 0; // top R-L bottom
+  margin: 1rem 1rem 1.5rem 0;
+  @include desktop {
+    margin: 1rem 1rem 1rem 0; // top R-L bottom
+  }
   &__img {
     background-color: $secondary-mercury;
     margin-right: 1rem;
@@ -13,5 +17,23 @@
   }
   &__title {
     margin-bottom: 0.5rem;
+    // ellipsis... on mobile only. 2nd line only
+    width: 7.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @supports (-webkit-line-clamp: 2) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: initial;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    @include tablet {
+      width: 10rem;
+      white-space: normal;
+    }
   }
 }

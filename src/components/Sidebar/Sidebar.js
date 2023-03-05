@@ -1,7 +1,6 @@
 import details from "../../data/video-details.json";
 import "./Sidebar.scss";
 import NavCard from "../NavCard/NavCard";
-import Hero from "../Hero/Hero";
 
 /* filter out and provide into by id */
 const Sidebar = (props) => {
@@ -15,7 +14,7 @@ const Sidebar = (props) => {
       <section className="sidebar">
         <h2 className="--faded --headline">NEXT VIDEOS</h2>
 
-        {/* change it when selected video and */}
+        {/* change list it when video selected  */}
         <ul className="card__child-holder">
           {props.videoList
             .filter((vid) => vid.id !== props.featuredVideo.id)

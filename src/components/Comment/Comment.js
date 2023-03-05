@@ -5,7 +5,7 @@ const Comment = ({ commentObj }) => {
   const date = new Date(commentObj.timestamp).toLocaleDateString("en-US");
 
   return (
-    // inside a fragment for a <hr> divider being a full width
+    // must be inside a fragment, for a <hr> divider being a full width
     <>
       <div className="comments__child">
         <div className="comments__avatar"></div>
@@ -17,7 +17,7 @@ const Comment = ({ commentObj }) => {
           <div className="comments__text">{commentObj.comment}</div>
         </div>
       </div>
-      <hr className="divider divider--first" />
+      <hr className="divider divider--first full-width" />
     </>
   );
 };

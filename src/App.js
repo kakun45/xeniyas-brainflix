@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import { useState } from "react"; // {} bc its a module
 import "./styles/partials/_global.scss"; // checked, it works

@@ -8,8 +8,9 @@ const Hero = ({ featuredVideo }) => {
           controls
           className="hero-img"
           poster={featuredVideo.image}
+          // todo: in next sprint
           // source
-          // todo: in next sprint src={featuredVideo.video}
+          // src={featuredVideo.video}
         ></video>
       </div>
     </div>
