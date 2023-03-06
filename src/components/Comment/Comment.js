@@ -1,8 +1,8 @@
 import "./Comment.scss";
 
-const Comment = ({ commentObj }) => {
+const Comment = ({ commentObj, humanDate }) => {
   // a comment obj from an Arr of comments
-  const date = new Date(commentObj.timestamp).toLocaleDateString("en-US");
+  // const date = new Date(commentObj.timestamp).toLocaleDateString("en-US");
 
   return (
     // must be inside a fragment, for a <hr> divider being a full width
@@ -12,7 +12,7 @@ const Comment = ({ commentObj }) => {
         <div className="comments__contentHolder">
           <div className="comments__titleHolder">
             <h3 className="comments__author">{commentObj.name}</h3>
-            <p className="comments__date --faded">{date}</p>
+            <p className="comments__date --faded">{humanDate}</p>
           </div>
           <div className="comments__text">{commentObj.comment}</div>
         </div>

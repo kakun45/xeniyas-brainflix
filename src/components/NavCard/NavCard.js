@@ -1,20 +1,16 @@
 import "./NavCard.scss";
 
-const NavCard = (props) => {
-
+const NavCard = ({ title, channel, image }) => {
   return (
     <div className="card">
-      <a
-        onClick={(e) => props.clickHandler(e, props.title)}
-        className="card__link"
-        href={`/${props.title}`}></a>
+      <a className="card__link" href={`${image}`}></a>
       <div className="card__img">
-        <img className="card__img" src={props.image}></img>
+        <img className="card__img" src={image}></img>
       </div>
 
       <div className="card__text">
-        <h3 className="card__title">{props.title}</h3>
-        <p className="card__channel">by {props.channel}</p>
+        <h3 className="card__title">{title}</h3>
+        <p className="card__channel">by {channel}</p>
       </div>
     </div>
   );
