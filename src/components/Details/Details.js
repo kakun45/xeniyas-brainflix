@@ -58,6 +58,7 @@ function humane_date(date_str) {
 
 const Details = ({ featuredVideo }) => {
   // Comments Section
+  console.log(featuredVideo);
   const commentsArr = featuredVideo.comments;
   // Timestamp is in ms since epoch
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");

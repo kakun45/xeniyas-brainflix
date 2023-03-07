@@ -1,13 +1,18 @@
-import details from "../../data/video-details.json";
+import { useEffect } from "react";
 import "./Sidebar.scss";
+// import details from "../../data/video-details.json";
 import NavCard from "../NavCard/NavCard";
 
 /* filter out and provide into by id */
-const Sidebar = (props) => {
+const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
   const selectVideo = (id) => {
-    const featuredVideo = details.find((video) => video.id === id);
-    props.setFeaturedVideo(featuredVideo);
+    const featuredVideo = videoList.find((video) => video.id === id);
+    setFeaturedVideo(featuredVideo);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [featuredVideo]);
 
   return (
     <div>
@@ -16,11 +21,12 @@ const Sidebar = (props) => {
 
         {/* change list it when video selected  */}
         <ul className="card__child-holder">
-          {props.videoList
-            .filter((vid) => vid.id !== props.featuredVideo.id)
+          {videoList
+            .filter((vid) => vid.id !== featuredVideo.id)
             .map((video) => (
               <li
                 key={video.id}
+                // navLink use here, watch a link for id on change
                 onClick={() => selectVideo(video.id)}
                 className="card__child">
                 <NavCard
