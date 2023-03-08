@@ -48,7 +48,6 @@ function humane_date(date_str) {
       }
     }
   }
-
   // overflow for centuries
   if (seconds > 4730400000)
     return Math.round(seconds / 4730400000) + " centuries" + token;
@@ -58,12 +57,11 @@ function humane_date(date_str) {
 
 const Details = ({ featuredVideo }) => {
   // Comments Section
-  console.log(featuredVideo);
   const commentsArr = featuredVideo.comments;
   // Timestamp is in ms since epoch
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");
-  const humanDate = humane_date(date); // for a next sprint
-  //  const stream = featuredVideo.video; // will be "https://project-2-api.herokuapp.com/stream"
+  const humanDate = humane_date(date); 
+  //  const stream = featuredVideo.video; // no use?
   return (
     <section className="main">
       <h1 className="main__title --headline">{featuredVideo.title}</h1>

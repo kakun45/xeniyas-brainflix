@@ -6,6 +6,7 @@ const Hero = ({ featuredVideo }) => {
       <div className="hero-contaier">
         <video
           controls
+          width="250"
           className="hero-img"
           poster={featuredVideo.image}
           // todo: in next sprint
