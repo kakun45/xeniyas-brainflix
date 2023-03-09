@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/NotFound/NotFound";
 // components
 // import Details from "./components/Details/Details";
 import Header from "./components/Header/Header"; // to avoid double in here need index.js in each folder
+import UploadPage from "./pages/Upload/Upload";
 // import Hero from "./components/Hero/Hero";
 // import Sidebar from "./components/Sidebar/Sidebar";
 
@@ -19,8 +20,11 @@ function App() {
         {/* when add Routs rander Pages in here under Header */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="upload" element={<UploadPage />} />
+          <Route path="404" element={<NotFoundPage />} />
+          {/* this can be "everything" like a star: "*", handle inside */}
           <Route path="/:videoId" element={<Home />} />
+          {/* redirect people */}
           <Route path="*" element={<Navigate to="404" />} />
         </Routes>
       </div>

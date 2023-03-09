@@ -15,6 +15,11 @@
     height: 5rem;
     border-radius: 4px;
   }
+  &__link {
+    text-decoration: none;
+    list-style: none;
+    color: $primary-brainFlix-black;
+  }
   &__title {
     margin-bottom: 0.5rem;
     // ellipsis... on mobile only. on a 2nd line only

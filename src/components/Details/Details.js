@@ -60,7 +60,7 @@ const Details = ({ featuredVideo }) => {
   const commentsArr = featuredVideo.comments;
   // Timestamp is in ms since epoch
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");
-  const humanDate = humane_date(date); 
+  const humanDate = humane_date(date);
   //  const stream = featuredVideo.video; // no use?
   return (
     <section className="main">
@@ -88,7 +88,7 @@ const Details = ({ featuredVideo }) => {
 
       <section className="main__comments">
         <h3 className="main__comments-count --headline">
-          {commentsArr.length} Comments
+          {commentsArr?.length} Comments
         </h3>
 
         <div className="main__join-conv">
@@ -115,7 +115,7 @@ const Details = ({ featuredVideo }) => {
         <hr className="divider divider--first full-width" />
 
         <section className="comments">
-          {commentsArr.map((commentObj) => {
+          {commentsArr?.map((commentObj) => {
             return (
               <Comment
                 key={commentObj.id}

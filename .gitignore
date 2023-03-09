@@ -24,4 +24,9 @@ yarn-error.log*
 
 /1.0 - Mockups
 /src/components/Header/build-test
+
 /src/data
+/key
+
+*.css
+*.css.map

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useNavigate, useParams, NavLink } from "react-router-dom";
 
 import axios from "axios";
 import "./Sidebar.scss";
@@ -10,6 +10,8 @@ import NavCard from "../NavCard/NavCard";
 const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
   // useParams
   const { videoId } = useParams();
+  const navigate = useNavigate();
+
   console.log(videoId);
   // another useEffect() - GET when detects a change on a videoList
   useEffect(() => {
@@ -24,7 +26,15 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
           // set state with res obj
           setFeaturedVideo(res2.data);
         })
-        .catch((err2) => console.log(err2));
+        .catch((err2) => {
+          // if error response is 404, Navigate to /404
+          if (err2.response.status === 404) {
+            console.log("Is 404 ", err2.response.status);
+            navigate("404");
+            // can't put in here the component, bc we must return
+            // <Navigate to="/404" />;
+          }
+        });
     }
   }, [videoList, videoId]);
 
@@ -54,7 +64,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
                 onClick={(e) => selectVideo(e, video.id)}
                 // navLink use here, watch a link for id on change
                 className="card__child">
-                <NavLink to={`/${video.id}`}>
+                <NavLink to={`/${video.id}`} className="card__link">
                   <NavCard
                     id={video.id}
                     title={video.title}
