@@ -1,5 +1,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/global";
 
 .main {
   &__subtitle {
@@ -26,6 +27,12 @@
   }
 }
 
+// doesn't work inside a .button &--cancel, bc needs Everything of it
+.upload__form {
+  @extend .main__form;
+  width: 100%;
+}
+
 textarea {
   width: 100%;
   height: 6rem;
@@ -50,10 +57,11 @@ textarea {
   }
 }
 
-// this @extend didn't work: todo: why?
+// // this @extend didn't work: needed to upload _global
 // .search__avatar--img-bottom {
 //   @extend .search__avatar--img;
 //   margin-top: 1rem;
+//   visibility: visible;
 // } // needed a workaround:
 .search__avatar--img.--bottom {
   margin-top: 1rem;

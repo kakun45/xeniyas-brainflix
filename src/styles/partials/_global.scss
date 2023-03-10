@@ -105,7 +105,8 @@ body {
 // margin on the sides and around main sections
 .header,
 .sidebar,
-.main {
+.main,
+.upload {
   margin: 1rem;
   @include tablet {
     margin: 1rem 2.5rem 1rem;
@@ -157,6 +158,12 @@ body {
   @include tablet {
     margin: 0;
   }
+}
+// doesn't work inside a .button &--cancel, bc needs Everything of it
+.button--cancel {
+  @extend .button;
+  color: $primary-brainFlix-blue;
+  background-color: $primary-white;
 }
 
 // AVATAR

@@ -1,13 +1,17 @@
-import logo from "../../assets/images/logo/BrainFlix-logo.svg";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import "./Header.scss";
-
+import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import upload from "../../assets/images/icons/upload.svg";
 
 function Header() {
+  const navigate = useNavigate();
+
   return (
     <header className="header">
-      <img className="logo" src={logo} alt="brainflix logo"></img>
-
+      {/* // todo: not navigating */}
+      <Link onClick={() => navigate("/")}>
+        <img className="logo" src={logo} alt="brainflix logo"></img>{" "}
+      </Link>
       <div className="search-parent">
         <div className="search-container">
           <input className="search" placeholder="Search" />

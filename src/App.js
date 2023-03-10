@@ -6,11 +6,8 @@ import { Navigate, BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import NotFoundPage from "./pages/NotFound/NotFound";
 // components
-// import Details from "./components/Details/Details";
 import Header from "./components/Header/Header"; // to avoid double in here need index.js in each folder
 import UploadPage from "./pages/Upload/Upload";
-// import Hero from "./components/Hero/Hero";
-// import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
@@ -22,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="upload" element={<UploadPage />} />
           <Route path="404" element={<NotFoundPage />} />
-          {/* this can be "everything" like a star: "*", handle inside */}
+          {/* this can be "everything" like a star: "*", handle it inside */}
           <Route path="/:videoId" element={<Home />} />
           {/* redirect people */}
           <Route path="*" element={<Navigate to="404" />} />
