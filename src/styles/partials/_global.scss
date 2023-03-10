@@ -8,15 +8,22 @@
   margin: 0;
 }
 
+#root {
+  @include desktop {
+    margin-top: 2rem;
+  }
+}
+
 h1 {
   // for mobile
   font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 700;
+  // font-weight: 700;
+  font-weight: 600;
   @include tablet {
     font-size: 2.0625rem;
     line-height: 2.75rem;
-    font-weight: 700;
+    // font-weight: 700;
   }
 }
 
@@ -124,7 +131,8 @@ body {
 
 .button {
   height: 2.5rem; //40px for all screen Sz
-  min-width: 100%;
+  width: 100%;
+  min-width: 9.375rem;
   border-radius: 0.25rem;
   border: none;
   color: $primary-white;
@@ -160,11 +168,11 @@ body {
   }
 }
 // doesn't work inside a .button &--cancel, bc needs Everything of it
-.button--cancel {
-  @extend .button;
-  color: $primary-brainFlix-blue;
-  background-color: $primary-white;
-}
+// .button--cancel {
+//   @extend .button;
+//   color: $primary-brainFlix-blue;
+//   background-color: $primary-white;
+// }
 
 // AVATAR
 // gray default avatar
@@ -172,11 +180,11 @@ body {
   background-color: $secondary-mercury;
   background-size: cover;
   border-radius: 50%;
-  width: 2.25rem;
+  min-width: 2.25rem;
   height: 2.25rem;
   @include tablet {
     display: flex;
-    width: 2.5rem;
+    // width: 2.5rem;
     height: 2.5rem;
   }
 }
