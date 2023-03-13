@@ -19,7 +19,7 @@ const Home = () => {
         // get a video by id with a specific rec
         setVideoList(res.data); // arr
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.err(err));
   }, []);
 
   return (

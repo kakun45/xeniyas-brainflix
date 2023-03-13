@@ -33,14 +33,11 @@ function humane_date(timestamp) {
   }
 }
 
-
-const Details = ({ featuredVideo }) => {
+const Details = ({ featuredVideo, setFeaturedVideo }) => {
   const [comment, setComment] = useState("");
 
   // Comments Section
-  let commentsArr = featuredVideo.comments;
-  const [comments, setComments] = useState(commentsArr);
-
+  // const [comments, setComments] = useState(featuredVideo.comments); // for use of local track of state without reload of a page, but it needs to reload when id of path changes
   const ifFormValid = () => {
     // Check if the field is filled
     const x = comment.trim();
@@ -59,27 +56,30 @@ const Details = ({ featuredVideo }) => {
     e.preventDefault();
 
     if (ifFormValid()) {
-      // This is where I would make an axios request to my backend to add the comment
+      // make an axios request to my backend to add the New comment
       function postUrl(id) {
         return `https://project-2-api.herokuapp.com/videos/${id}/comments?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`;
       }
 
+      let newComment = {
+        name: "Anonymous Guest",
+        comment: comment,
+      };
+
       axios
-        .post(postUrl(featuredVideo.id), {
-          name: "Anonymous Guest",
-          comment: comment,
-        })
+        .post(postUrl(featuredVideo.id), newComment)
         .then((_res) => {
           axios
             .get(
               `https://project-2-api.herokuapp.com/videos/${featuredVideo.id}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
             )
             .then((res) => {
-              setComments(res.data.comments);
+              // setComments(res.data.comments); // works for comments on POST, no reload needed
+              setFeaturedVideo({ ...res.data, newComment }); // use this for updating comments with reload on route id change
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.err(err));
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.err(err));
       alert("Comment added");
       setComment(""); // clear comment field
     } else {
@@ -96,7 +96,6 @@ const Details = ({ featuredVideo }) => {
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");
 
   const humanDate = (timestamp) => {
-    // const date = new Date(timestamp).toLocaleDateString("en-US"); // D/MM/YYY
     const date = humane_date(timestamp);
     return date;
   };
@@ -135,7 +134,7 @@ const Details = ({ featuredVideo }) => {
 
       <section className="main__comments">
         <h3 className="main__comments-count --headline">
-          {commentsArr?.length} Comments
+          {featuredVideo.comments?.length} Comments
         </h3>
 
         <div className="main__join-conv">
@@ -169,7 +168,7 @@ const Details = ({ featuredVideo }) => {
         <hr className="divider divider--first full-width" />
 
         <section className="comments">
-          {comments?.map((commentObj) => {
+          {featuredVideo.comments?.map((commentObj) => {
             return (
               <Comment
                 key={commentObj.id}
