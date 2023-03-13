@@ -1,14 +1,19 @@
 import "./NotFound.scss";
-
-// export default function NotFoundPage() {
-//   return <h1>404 Page is not Found!</h1>;
-// }
+import notFoundImg from "../../assets/images/error.png";
 
 function NotFoundPage() {
   return (
     <>
-      <h1>404</h1>
-      <p>Can't find what you're looking for, sorry!</p>
+      <h1 className="notFound__headline">
+        Can't find what you're looking for, sorry!
+      </h1>
+      <div className="notFound__parent">
+        <img
+          className="notFound__img"
+          src={notFoundImg}
+          alt="404 page is not found with a broken robot"
+        />
+      </div>
     </>
   );
 }

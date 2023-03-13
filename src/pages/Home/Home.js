@@ -16,16 +16,11 @@ const Home = () => {
         "https://project-2-api.herokuapp.com/videos?api_key=876863b1-acf2-43bb-99af-da02cb98ad48"
       )
       .then((res) => {
-        // console.log("get was called. res:", res.data);
-        // const videoList = res.data;
         // get a video by id with a specific rec
         setVideoList(res.data); // arr
       })
       .catch((err) => console.log(err));
   }, []);
-
-
-  // console.log(featuredVideo);
 
   return (
     <>
@@ -33,7 +28,10 @@ const Home = () => {
       <section className="desktop-container">
         {Object.keys(featuredVideo).length > 0 ? (
           <>
-            <Details featuredVideo={featuredVideo} />
+            <Details
+              featuredVideo={featuredVideo}
+              setFeaturedVideo={setFeaturedVideo}
+            />
             <hr className="divider-desktop" />
           </>
         ) : (

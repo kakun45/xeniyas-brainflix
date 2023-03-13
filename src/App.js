@@ -1,8 +1,5 @@
 import "./App.scss";
-// import "./styles/partials/_global.scss"; // checked, it works
 import { Navigate, BrowserRouter, Route, Routes } from "react-router-dom";
-// import { useState } from "react"; // {} bc its a module
-
 import Home from "./pages/Home/Home";
 import NotFoundPage from "./pages/NotFound/NotFound";
 // components

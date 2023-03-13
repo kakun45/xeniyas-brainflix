@@ -10,7 +10,6 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
   const { videoId } = useParams();
   const navigate = useNavigate();
 
-  console.log(videoId);
   // another useEffect() - GET when detects a change on a videoList
   useEffect(() => {
     const featuredVideoId = videoId || videoList[0]?.id;
@@ -20,7 +19,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
           `https://project-2-api.herokuapp.com/videos/${featuredVideoId}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
         )
         .then((res2) => {
-          // set state with res obj
+          // set State setFeaturedVideo with res obj
           setFeaturedVideo(res2.data);
         })
         .catch((err2) => {

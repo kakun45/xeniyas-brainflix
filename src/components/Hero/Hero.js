@@ -9,8 +9,7 @@ const Hero = ({ featuredVideo }) => {
           width="250"
           className="hero-img"
           poster={featuredVideo.image}
-          // todo: in next sprint
-          // source
+          // todo:
           // src={featuredVideo.video}
         ></video>
       </div>

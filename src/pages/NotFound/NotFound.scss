@@ -1,0 +1,31 @@
+@use "../../styles/partials/mixins" as *;
+
+.notFound {
+  &__headline {
+    margin: 1.5rem 1rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    @include tablet {
+      margin: 3rem 1rem 0;
+    }
+    @include desktop {
+      margin: 3rem 0 0;
+    }
+  }
+  &__parent {
+    text-align: center;
+    position: relative;
+    left: 20px;
+    top: -10px;
+    @include tablet {
+      top: -20px;
+    }
+    @include desktop {
+      top: -30px;
+    }
+  }
+  &__img {
+    width: 100%;
+  }
+}

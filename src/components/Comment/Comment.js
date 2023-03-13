@@ -2,7 +2,6 @@ import "./Comment.scss";
 
 const Comment = ({ commentObj, humanDate }) => {
   // a comment obj from an Arr of comments
-  // const date = new Date(commentObj.timestamp).toLocaleDateString("en-US");
 
   return (
     // must be inside a fragment, for a <hr> divider being a full width

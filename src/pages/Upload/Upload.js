@@ -9,7 +9,7 @@ const UploadPage = () => {
   return (
     <>
       {" "}
-      <hr className="divider full-width upload--full-width" />
+      <hr className="upload--full-width" />
       <section className="upload">
         <h1 className="upload__title --headline">Upload Video</h1>
         <hr className="divider divider-tablet" />
@@ -44,16 +44,16 @@ const UploadPage = () => {
             </div>
           </form>
         </div>
-          <hr className="divider" />
+        <hr className="divider" />
 
         <div className="upload__buttons">
           <button
             onClick={() => {
               alert("File is uploaded!");
-              navigate("/"); // after that => go home
+              navigate("/"); // after allert click => go home
             }}
             className="button button-comment">
-            <img src={logo} className="button--icon"></img>
+            <img src={logo} className="button--icon" alt="publish icon"></img>
             PUBLISH
           </button>
           <button className="button--cancel">CANCEL</button>
