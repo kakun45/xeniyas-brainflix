@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import "./Details.scss";
+import { useEffect, useState } from "react";
 import icon from "../../assets/images/icons/add_comment.svg";
-import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
+import viewsIcon from "../../assets/images/icons/views.svg";
 import Comment from "../Comment/Comment";
+import "./Details.scss";
 const API_URI = process.env.REACT_APP_API_URI;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -61,9 +61,7 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
     if (ifFormValid()) {
       // makes an axios post request to backend to add a New Comment
       const postUrl = (id) => {
-        // `https://project-2-api.herokuapp.com/videos/${id}/comments?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`;
-        const url = `${API_URI}videos/${id}/comments?api_key=${API_KEY}`;
-        console.log(url);
+        const url = `${API_URI}/videos/${id}/comments?api_key=${API_KEY}`;
         return url;
       };
 
@@ -76,9 +74,7 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
         .then((res) => {
           // todo: I may not need it. The post can return it. Use res.data
           axios
-            .get(
-              `http://localhost:8080/videos/${featuredVideo.id}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
-            )
+            .get(`${API_URI}/videos/${featuredVideo.id}?api_key=${API_KEY}`)
             .then((res) => {
               // setComments(res.data.comments); // works for comments on POST, no reload needed
               setFeaturedVideo({ ...res.data, newComment }); // use this for updating comments with reload on route id change
@@ -89,7 +85,7 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
       alert("Comment added");
       setComment(""); // clear comment field
     } else {
-      // add a class error instead
+      // uses a class error as well
       alert("Failed to add a comment. You've an error in a comment");
     }
   };

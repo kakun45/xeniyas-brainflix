@@ -59,6 +59,12 @@
     color: $primary-white;
   }
 }
+.divider-mobile {
+  display: none;
+  @include tablet {
+    display: flex;
+  }
+}
 
 .divider-tablet {
   display: none;

@@ -7,7 +7,7 @@
   align-items: center;
   @include tablet {
     flex-direction: row;
-    justify-content: space-between; 
+    justify-content: space-between;
   }
 }
 
@@ -20,7 +20,7 @@
   border-radius: 4px;
   border: 1px $secondary-mercury solid;
   height: 2.5rem;
-  background-position: 0.5rem 60%;
+  background-position: 0.5rem 50%;
   @include tablet {
     width: 34vw;
   }

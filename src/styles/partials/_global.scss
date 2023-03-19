@@ -15,7 +15,6 @@
 }
 
 h1 {
-  // for mobile
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 600;
@@ -26,48 +25,36 @@ h1 {
 }
 
 h2 {
-  // for mobile
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 700;
   @include tablet {
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 700;
   }
 }
 
 h3 {
-  // for mobile
   font-size: 0.75rem;
   line-height: 1.25rem;
   font-weight: 700;
-  @include tablet {
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-  }
 }
 
 p {
-  // for mobile
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
   @include tablet {
     font-size: 0.875rem;
     line-height: 1.375rem;
-    font-weight: 400;
   }
 }
 
 label,
 .button {
-  // for mobile
   font-size: 0.725rem;
   line-height: 1.25rem;
   font-weight: 400;
-  // use h3 on: tablet & up
 }
 
 body {
@@ -76,12 +63,12 @@ body {
   font-weight: 400;
 }
 
-// padding before/after headlines:
+// space before/after headlines:
 .--headline {
-  // for mobile needs to collaps -> must use margin
-  margin: 1.5rem 0 1rem; // 24px top, 0 l+r 16px bottom
+  // WARNING! for mobile needs to collaps -> must use margin
+  margin: 1.5rem 0 1rem; // top, l+r bottom
   @include tablet {
-    margin: 2.25rem 0 1.5rem; // don't use padding
+    margin: 2.25rem 0 1.5rem; // WARNING! don't use padding
   }
 }
 
@@ -95,8 +82,8 @@ body {
   display: none;
   @include desktop {
     display: flex;
+    // WARNING! don't use border-top
     margin-top: 0;
-    // border-top wont work, don't use it
   }
 }
 

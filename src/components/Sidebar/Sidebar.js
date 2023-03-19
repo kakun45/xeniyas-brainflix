@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useNavigate, useParams, NavLink } from "react-router-dom";
-import "./Sidebar.scss";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import NavCard from "../NavCard/NavCard";
+import "./Sidebar.scss";
 
-/* filter out and provide into by id */
+/* filter out and provide info by id */
 const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
-  // useParams from a url
+  // useParams gets an ID from a url
   const { videoId } = useParams();
   const navigate = useNavigate();
 
-  // another useEffect() - GET when detects a change on a videoList
+  // useEffect() sends .GET when detects a change on a videoList, & link
   useEffect(() => {
     const featuredVideoId = videoId || videoList[0]?.id;
     if (featuredVideoId) {
@@ -25,20 +25,14 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
         .catch((err2) => {
           // if error response is 404, Navigate to /404
           if (err2.response.status === 404) {
+            console.log("The id doesn't exist");
             navigate("404");
-            // can't put in here the component, bc we must return
-            // <Navigate to="/404" />;
           }
         });
     }
   }, [videoList, videoId]);
 
-  const selectVideo = (e, videoId) => {
-    e.preventDefault();
-    const featuredVideo = videoList.find((video) => video.id === videoId);
-    setFeaturedVideo(featuredVideo);
-  };
-
+  // Scroll Up the top of the page when detect the featuredVideo change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [featuredVideo]);
@@ -48,16 +42,12 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
       <section className="sidebar">
         <h2 className="--faded --headline">NEXT VIDEOS</h2>
 
-        {/* change list it when video selected  */}
+        {/* change list to exclude a featuredVideo selection */}
         <ul className="card__child-holder">
           {videoList
             .filter((vid) => vid.id !== featuredVideo.id)
             .map((video) => (
-              <li
-                key={video.id}
-                onClick={(e) => selectVideo(e, video.id)}
-                // navLink use here, watch a link for id on change
-                className="card__child">
+              <li key={video.id} className="card__child">
                 <NavLink to={`/${video.id}`} className="card__link">
                   <NavCard
                     id={video.id}
