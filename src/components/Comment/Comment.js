@@ -1,10 +1,9 @@
 import "./Comment.scss";
 
 const Comment = ({ commentObj, humanDate }) => {
-  // a comment obj from an Arr of comments
 
   return (
-    // must be inside a fragment, for a <hr> divider being a full width
+    // WARNING! Must be inside a fragment, for a <hr> divider being a full width
     <>
       <div className="comments__child">
         <div className="comments__avatar"></div>

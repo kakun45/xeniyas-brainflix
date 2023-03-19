@@ -4,6 +4,8 @@ import "./Home.scss";
 import Hero from "../../components/Hero/Hero";
 import Details from "../../components/Details/Details";
 import Sidebar from "../../components/Sidebar/Sidebar";
+const API_URI = process.env.REACT_APP_API_URI;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const Home = () => {
   const [videoList, setVideoList] = useState([]);
@@ -12,14 +14,13 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://project-2-api.herokuapp.com/videos?api_key=876863b1-acf2-43bb-99af-da02cb98ad48"
-      )
+      .get(`${API_URI}videos?api_key=${API_KEY}`)
       .then((res) => {
         // get a video by id with a specific rec
+        // console.log("GET on Home was called");
         setVideoList(res.data); // arr
       })
-      .catch((err) => console.err(err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (

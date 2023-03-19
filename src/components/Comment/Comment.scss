@@ -11,7 +11,7 @@
     justify-content: space-between;
   }
   &__contentHolder {
-    width: 93%; // to not flatten a gray circle avatar
+    width: 93%;
   }
   &__titleHolder {
     display: flex;
@@ -20,7 +20,6 @@
   }
   &__input {
     @include tablet {
-      // display: flex;
       align-items: stretch;
       gap: 1rem;
     }

@@ -1,6 +1,6 @@
 import "./NavCard.scss";
 
-const NavCard = ({ id, title, channel, image }) => {
+const NavCard = ({ title, channel, image }) => {
   return (
     <div className="card">
       <div className="card__img">

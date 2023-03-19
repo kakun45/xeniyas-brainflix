@@ -5,6 +5,8 @@ import icon from "../../assets/images/icons/add_comment.svg";
 import viewsIcon from "../../assets/images/icons/views.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 import Comment from "../Comment/Comment";
+const API_URI = process.env.REACT_APP_API_URI;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 function humane_date(timestamp) {
   const diff_sec = Date.now() / 1000 - timestamp / 1000;
@@ -15,21 +17,22 @@ function humane_date(timestamp) {
   const diff_years = diff_days / 365;
   if (diff_min < 1) {
     return `${diff_sec} seconds ago`;
-    //
+    // seconds
   } else if (diff_hours < 1) {
     return `${Math.round(diff_min)}  minutes ago`;
-    //
+    // minutes
   } else if (diff_days < 1) {
     return `${Math.round(diff_hours)} hours ago`;
-    //
+    // hours
   } else if (diff_months < 1) {
     return `${Math.round(diff_days)} days ago`;
-    //
+    // days
   } else if (diff_years < 1) {
     return `${Math.round(diff_months)} months ago`;
-    //
+    // months
   } else {
     return `${Math.round(diff_years)} years ago`;
+    // years
   }
 }
 
@@ -37,7 +40,6 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
   const [comment, setComment] = useState("");
 
   // Comments Section
-  // const [comments, setComments] = useState(featuredVideo.comments); // for use of local track of state without reload of a page, but it needs to reload when id of path changes
   const ifFormValid = () => {
     // Check if the field is filled
     const x = comment.trim();
@@ -49,37 +51,41 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
   };
 
   useEffect(() => {
-    ifFormValid();
+    // disabling validation temporarily because of feedback:
+    // ifFormValid();
   }, [comment]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (ifFormValid()) {
-      // make an axios request to my backend to add the New comment
-      function postUrl(id) {
-        return `https://project-2-api.herokuapp.com/videos/${id}/comments?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`;
-      }
+      // makes an axios post request to backend to add a New Comment
+      const postUrl = (id) => {
+        // `https://project-2-api.herokuapp.com/videos/${id}/comments?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`;
+        const url = `${API_URI}videos/${id}/comments?api_key=${API_KEY}`;
+        console.log(url);
+        return url;
+      };
 
       let newComment = {
-        name: "Anonymous Guest",
         comment: comment,
       };
 
       axios
         .post(postUrl(featuredVideo.id), newComment)
-        .then((_res) => {
+        .then((res) => {
+          // todo: I may not need it. The post can return it. Use res.data
           axios
             .get(
-              `https://project-2-api.herokuapp.com/videos/${featuredVideo.id}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
+              `http://localhost:8080/videos/${featuredVideo.id}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
             )
             .then((res) => {
               // setComments(res.data.comments); // works for comments on POST, no reload needed
               setFeaturedVideo({ ...res.data, newComment }); // use this for updating comments with reload on route id change
             })
-            .catch((err) => console.err(err));
+            .catch((err) => console.error(err));
         })
-        .catch((err) => console.err(err));
+        .catch((err) => console.error(err));
       alert("Comment added");
       setComment(""); // clear comment field
     } else {

@@ -16,7 +16,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
     if (featuredVideoId) {
       axios
         .get(
-          `https://project-2-api.herokuapp.com/videos/${featuredVideoId}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
+          `http://localhost:8080/videos/${featuredVideoId}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
         )
         .then((res2) => {
           // set State setFeaturedVideo with res obj
