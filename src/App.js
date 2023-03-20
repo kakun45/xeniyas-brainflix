@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="upload" element={<UploadPage />} />
           <Route path="404" element={<NotFoundPage />} />
-          {/* /:videoId can be "everything" like a star: "*", handle it inside */}
+          {/* /:videoId can be "everything" like a star: "*", handling it on status code */}
           <Route path="/:videoId" element={<Home />} />
           {/* redirect "everything" else to 404 */}
           <Route path="*" element={<Navigate to="404" />} />

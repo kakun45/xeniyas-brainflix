@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import NavCard from "../NavCard/NavCard";
 import "./Sidebar.scss";
+const API_URI = process.env.REACT_APP_API_URI;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 /* filter out and provide info by id */
 const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
@@ -15,9 +17,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
     const featuredVideoId = videoId || videoList[0]?.id;
     if (featuredVideoId) {
       axios
-        .get(
-          `http://localhost:8080/videos/${featuredVideoId}?api_key=876863b1-acf2-43bb-99af-da02cb98ad48`
-        )
+        .get(`${API_URI}/videos/${featuredVideoId}?api_key=${API_KEY}`)
         .then((res2) => {
           // set State setFeaturedVideo with res obj
           setFeaturedVideo(res2.data);
@@ -30,6 +30,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
           }
         });
     }
+    // eslint-disable-next-line
   }, [videoList, videoId]);
 
   // Scroll Up the top of the page when detect the featuredVideo change

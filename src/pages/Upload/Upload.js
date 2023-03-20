@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/images/icons/publish.svg";
-
 import videoPreview from "../../assets/images/Upload-video-preview.jpg";
 import "./Upload.scss";
 const API_URI = process.env.REACT_APP_API_URI;

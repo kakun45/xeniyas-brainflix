@@ -16,7 +16,7 @@ function humane_date(timestamp) {
   const diff_months = diff_days / 30;
   const diff_years = diff_days / 365;
   if (diff_min < 1) {
-    return `${diff_sec} seconds ago`;
+    return `Less than 1 minute ago`;
     // seconds
   } else if (diff_hours < 1) {
     return `${Math.round(diff_min)}  minutes ago`;
@@ -40,19 +40,21 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
   const [comment, setComment] = useState("");
 
   // Comments Section
+  // validation
   const ifFormValid = () => {
-    // Check if the field is filled
+    // Checks if the field is filled
     const x = comment.trim();
     return Boolean(x);
   };
 
   const isFormEmpty = () => {
+    // Checks if the field had beed filled up with spaces after trim
     return !Boolean(comment);
   };
 
   useEffect(() => {
-    // disabling validation temporarily because of feedback:
-    // ifFormValid();
+    ifFormValid();
+    // eslint-disable-next-line
   }, [comment]);
 
   const handleSubmit = (e) => {
@@ -68,27 +70,25 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
       let newComment = {
         comment: comment,
       };
-
       axios
         .post(postUrl(featuredVideo.id), newComment)
-        .then((res) => {
-          // todo: I may not need it. The post can return it. Use res.data
+        .then((_res) => {
           axios
             .get(`${API_URI}/videos/${featuredVideo.id}?api_key=${API_KEY}`)
             .then((res) => {
-              // setComments(res.data.comments); // works for comments on POST, no reload needed
-              setFeaturedVideo({ ...res.data, newComment }); // use this for updating comments with reload on route id change
+              setFeaturedVideo({ ...res.data, newComment }); // updating comments with reload on route id change
             })
-            .catch((err) => console.error(err));
+            .catch((err) => console.error(err.message));
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err.message));
       alert("Comment added");
       setComment(""); // clear comment field
     } else {
-      // uses a class error as well
+      // uses a class "error" as well
       alert("Failed to add a comment. You've an error in a comment");
     }
   };
+
   // set state with input field
   const handleChangeComment = (e) => {
     setComment(e.target.value);
@@ -98,8 +98,8 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
   const date = new Date(featuredVideo.timestamp).toLocaleDateString("en-US");
 
   const humanDate = (timestamp) => {
-    const date = humane_date(timestamp);
-    return date;
+    const date2 = humane_date(timestamp);
+    return date2;
   };
 
   return (
