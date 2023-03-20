@@ -8,10 +8,7 @@ const Hero = ({ featuredVideo }) => {
           controls
           width="250"
           className="hero-img"
-          poster={featuredVideo.image}
-          // todo:
-          // src={featuredVideo.video}
-        ></video>
+          poster={featuredVideo.image}></video>
       </div>
     </div>
   );

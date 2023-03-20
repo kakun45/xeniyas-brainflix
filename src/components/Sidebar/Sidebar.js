@@ -23,7 +23,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
           setFeaturedVideo(res2.data);
         })
         .catch((err2) => {
-          // if error response is 404, Navigate to /404
+          // to avoid * if error response is 404, Navigate to /404
           if (err2.response.status === 404) {
             console.log("The id doesn't exist");
             navigate("404");

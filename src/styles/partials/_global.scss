@@ -136,7 +136,6 @@ body {
     min-width: 9.375rem;
   }
   &-comment {
-    // for mobile
     margin: 0;
     @include tablet {
       width: 10rem;
@@ -145,7 +144,6 @@ body {
     }
   }
   &-upload {
-    // for mobile
     margin: 1rem 0 0;
   }
   @include tablet {

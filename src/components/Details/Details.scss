@@ -27,7 +27,7 @@
   }
 }
 
-// doesn't work inside a .button &--cancel, bc needs Everything of it
+// WORNING! Doesn't work inside a ".button &--cancel", needs Everything
 .upload__form {
   @extend .main__form;
   width: 100%;
@@ -44,9 +44,8 @@ textarea {
   background-color: $secondary-alabaster;
   margin: 0.25rem 0 1rem; // 4px on all screen Sz
   padding: 0.75rem;
-  // color: ; // this is on input text, don't touch it!
+  // color: ; // WARNING! this is on input text, don't touch it!
   @include tablet {
-    // height: 2.5rem; // 40px
     min-height: 2.5rem;
     padding: 0.6875rem 1.375rem 0.75rem;
     margin: 0 0 1rem;
@@ -57,12 +56,6 @@ textarea {
   }
 }
 
-// // this @extend didn't work: needed to upload _global
-// .search__avatar--img-bottom {
-//   @extend .search__avatar--img;
-//   margin-top: 1rem;
-//   visibility: visible;
-// } // needed a workaround:
 .search__avatar--img.--bottom {
   margin-top: 1rem;
   @include tablet {
@@ -73,7 +66,7 @@ textarea {
 //stretches the dividder for a desktop view
 .full-width {
   @include desktop {
-    // must be === to a margin on a .main section from global
+    // WARNING! must be === to a margin on a .main section from global
     margin-right: -2.5rem;
   }
 }

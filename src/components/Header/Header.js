@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import "./Header.scss";
-import logo from "../../assets/images/logo/BrainFlix-logo.svg";
 import upload from "../../assets/images/icons/upload.svg";
+import logo from "../../assets/images/logo/BrainFlix-logo.svg";
+import "./Header.scss";
 
 function Header() {
   return (
     <header className="header">
-      {/* // todo: not navigating */}
       <Link to="/">
         <img className="logo" src={logo} alt="brainflix logo"></img>{" "}
       </Link>
