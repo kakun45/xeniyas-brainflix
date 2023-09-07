@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import icon from "../../assets/images/icons/add_comment.svg";
 import likesIcon from "../../assets/images/icons/likes.svg";
 import viewsIcon from "../../assets/images/icons/views.svg";
@@ -52,10 +52,6 @@ const Details = ({ featuredVideo, setFeaturedVideo }) => {
     return !Boolean(comment);
   };
 
-  useEffect(() => {
-    ifFormValid();
-    // eslint-disable-next-line
-  }, [comment]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

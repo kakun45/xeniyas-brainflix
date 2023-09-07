@@ -30,8 +30,7 @@ const Sidebar = ({ videoList, setFeaturedVideo, featuredVideo }) => {
           }
         });
     }
-    // eslint-disable-next-line
-  }, [videoList, videoId]);
+  }, [videoList, videoId, navigate, setFeaturedVideo]);
 
   // Scroll Up the top of the page when detect the featuredVideo change
   useEffect(() => {
