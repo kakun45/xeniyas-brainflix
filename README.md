@@ -1,4 +1,4 @@
-# BrainFlix
+# BrainFlix final [Sprint 3]
 # Home page
 
 Desktop 
@@ -39,7 +39,42 @@ Mobile
 - Structure Diagram img.
 - sample video. 
 
-# Functional Requirements:
+# Functional Requirements Sprint 1
+- The ”Next Video” sidebar must not contain the current video being displayed.
+- Components should render using dynamic data, not hardcoded HTML (eg. comments, current video, and video-list sections).
+- Side Videos should be clickable and upon selecting a video you should update the Main Video section to display the details and comments of a new video. Think of which React concept you could use to update the UI based on user interaction.
+- Using both of the data files provided from the assets, you must use state to hold the data and pass it down as props to generate side-videos and main-video content including comments.
+- The data files provided are meant to mimic a REST API response, where one endpoint will return a small amount of data for each video that exists, the second endpoint will return all the data for one specific video. Think about how you may use the data files provided to achieve this within your project.
+- The main-video should be included in the side-videos array held in state (with the same object keys as other side-video objects) and filtered out of the side-videos section programmatically when rendering the component.
+- The main-video object, with extended properties, should be held in a separate portion of state
+
+# Functional Requirements Sprint 2
+- Clicking the BrainFlix Logo must link back to the home page (the page with the default video - which will be the first video in the side-videos list).
+- There must be 3 routes:
+  - The Home/Video Player Page for displaying the details of a video.
+  - The Video Upload Page
+  - A route that will load the video with the provided video id to be displayed using the Video Player Page.
+- Clicking on a video in the “Next Video” list must go to the Video Details Page for the selected video via routing and display all the information for the video such as (likes, views, author, comments, etc).
+- Clicking on the “Upload” button must link to the Video Upload Page.
+# Visual Design Requirements
+The site must be responsive at and between media breakpoints. 
+# Main Video Page
+- Home Page and Video Details Page should use the same Page Component, and use two separate routes, one for home and the other for a selected video. Think of a unique property of a video object that you could incorporate into your route definition.
+  - For the Home Page, the video that should be displayed is the first video within the array of videos.
+  - For the Video Details Page, the video that should be displayed is the selected video within the array of videos.
+- You must use the `useEffect` hook as well as the `useParams` hook from react-router to determine when to update the main-video data.
+- Clicking on a video thumb in the side-videos section should update the `URL`. Do not use a click handler to update State for this scenario. This means you need to refactor Sprint 1 functionality to utilize the React Router for this Sprint.
+# Video Upload Page
+After form submission, it should notify about “upload” and redirect to a home page with the default video selected.
+Upload functionality is not required for this sprint.
+# Video API
+- Data displayed in the app must be retrieved from the provided mock API using `axios`.
+- The site must use the provided API to retrieve the video links and video details.
+  - The site must use the comments provided with the video details response.
+- All data for videos and comments must come from the provided mock API.
+
+
+# Functional Requirements Sprint 3:
 ## API Server
 - The end-points and response structure of an API server must match that of the mock API server.
 - The API must have the following end-points:
@@ -66,8 +101,8 @@ Mobile
 ## Implementation Requirements
 - Any feedback that has been provided around your implementation from previous sprints must be incorporated into this final Sprint. This Sprint represents the completed product that the “client” has requested. If you have questions about how to implement a piece of feedback, ask someone from the Education Team.
 - Your project must follow the proper folder structure and naming convention outlined in the Project Guidelines section in Synapse and the Sprint 3 folder Structure Diagram.
-- The site must make use of the provided assets.
-- The app must use multiple React components as discussed in class.
+- The site must make use of the provided by the designer assets.
+- The app must use multiple React components.
 - The app must use `react-router-dom` with multiple routes, one for each page.
 - The project's CSS must use SASS variables.
 - The CSS must use BEM principles when naming classes.
@@ -79,14 +114,25 @@ Use your `develop` & `feature` branches for development during this sprint, and 
 ## Diving Deeper [todo]
 Diving Deeper challenges should only be attempted if all project requirements are met and adding Diving Deeper challenges do not conflict with the existing requirements. The following are suggestions that you can try to take your understanding deeper and go above and beyond the basic requirements.
 
-# Comments endpoints
-- Implement POST and DELETE endpoints 
+# Dynamic Timestamp Sprint 1
+To add a more refined feel to the site, let's update the timestamp in the comments section and video details to reflect when it was posted in a more human-readable format. Using YouTube as an example, a recently posted comment might display the time posted as "10 minutes ago" or "3 days ago". Apply this type of timestamp to your data without hardcoding the actual message.
+
+# Posting Comments Sprint 2
+To add another layer of functionality to the site, try adding the ability to post and delete comments. Regarding the technical implementation, the following requirements should be met:
+
+- When posting a comment, ensure that the page does not refresh.
+- You must `POST` a comment to the API.
+- If successful in posting the comment, render the new comment by sending a new request for the "Main Video" data.
+- After deleting a comment using the API endpoint, your comment section should update without refreshing the browser.
+
+# Sprint 3: Comments endpoints 
+- Implement `POST` and `DELETE` endpoints 
   - `POST` /videos/:id/comments for creating a new comment
   - `DELETE` /videos/:videoId/comments/:commentId for deleting a comment
 
 # Custom Video Player
 - You may use this sample video here.
-- Video controls should not be the default <video> controls. They should be added and styled with the provided assets, CSS, and appropriate HTML elements. Refer to sprints 1 & 2 design packages.
+- Video controls should not be the default `<video>` controls. They should be added and styled with the provided assets, CSS, and appropriate HTML elements. Refer to sprints 1 & 2 design packages.
 - Given the provided creative mockups, add full functionality to the video player. This includes details such as the play/pause functionality, the blue scrubber bar, fullscreen, time tracking, and volume control. All necessary assets should be included within your original design package. For volume control, feel free to reuse the scrubber design and assets.
 
 # Upload Custom Poster Image
