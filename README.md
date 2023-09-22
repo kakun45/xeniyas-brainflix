@@ -1,6 +1,6 @@
 # BrainFlix final [Sprint 3]
 # Home page
-
+## Author - Xeniya Shoiko, All rights reserved.
 Desktop 
 
 <img width="850" alt="Screen Shot 2023-09-06 at 10 24 44 PM" src="https://github.com/kakun45/xeniyas-brainflix/assets/53381916/b89ca100-796c-4f27-831e-47ab6d301fdb">
