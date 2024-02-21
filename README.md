@@ -1,6 +1,7 @@
-# BrainFlix final [Sprint 3]
-# Home page
+# BrainFlix - Video Social Media Platform
 ## Author - Xeniya Shoiko, All rights reserved.
+Here is my [backend repo](https://github.com/kakun45/xeniyas-brainflix-api) 
+# Home page
 Desktop 
 
 <img width="850" alt="Screen Shot 2023-09-06 at 10 24 44 PM" src="https://github.com/kakun45/xeniyas-brainflix/assets/53381916/b89ca100-796c-4f27-831e-47ab6d301fdb">
@@ -27,20 +28,17 @@ Mobile
 
 <img width="1377" alt="Screen Shot 2023-09-06 at 10 21 41 PM" src="https://github.com/kakun45/xeniyas-brainflix/assets/53381916/d127d5c1-eb7e-447d-ae53-dfbaa0c5702c">
 
-___
-Here is my [backend repo](https://github.com/kakun45/xeniyas-brainflix-api) 
-___
 ## Tools & Resources
 - Mock API documentation.
 - `Postman` to test the API.
 - Used `react-router-dom` to create the multi-page functionality of the app.
 - `npm` used to install JavaScript libraries - `axios`
-- Used the sass npm package to allow to compile .scss files in the project
+- Used the sass npm package to allow to compile .scss files in the project.
 - assets from UI designer.
 - Structure Diagram img.
 - sample video. 
 
-# Functional Requirements Sprint 1
+# Functional Requirements
 - The ”Next Video” sidebar must not contain the current video being displayed.
 - Components should render using dynamic data, not hardcoded HTML (eg. comments, current video, and video-list sections).
 - Side Videos should be clickable and upon selecting a video you should update the Main Video section to display the details and comments of a new video. Think of which React concept you could use to update the UI based on user interaction.
@@ -49,7 +47,7 @@ ___
 - The main-video should be included in the side-videos array held in state (with the same object keys as other side-video objects) and filtered out of the side-videos section programmatically when rendering the component.
 - The main-video object, with extended properties, should be held in a separate portion of state
 
-# Functional Requirements Sprint 2
+# Functional Requirements
 - Clicking the BrainFlix Logo must link back to the home page (the page with the default video - which will be the first video in the side-videos list).
 - There must be 3 routes:
   - The Home/Video Player Page for displaying the details of a video.
@@ -75,7 +73,7 @@ Upload functionality is not required for this sprint.
 - All data for videos and comments must come from the provided mock API.
 
 
-# Functional Requirements Sprint 3:
+# Functional Requirements:
 ## API Server
 - The end-points and response structure of an API server must match that of the mock API server.
 - The API must have the following end-points:
@@ -110,23 +108,20 @@ Upload functionality is not required for this sprint.
 - The site should use Flexbox for layout control.
 
 ## Project Structure of BrainFlix 
-Use your `develop` & `feature` branches for development during this sprint, and merge your develop branch with main when submitting your sprint. 
+Use `develop` & `feature` branches for development during this sprint, and merge your `develop` branch with `main` when submitting your sprint. 
 
-## Diving Deeper [todo]
-Diving Deeper challenges should only be attempted if all project requirements are met and adding Diving Deeper challenges do not conflict with the existing requirements. The following are suggestions that you can try to take your understanding deeper and go above and beyond the basic requirements.
-
-# Dynamic Timestamp Sprint 1
+# Dynamic Timestamp 
 To add a more refined feel to the site, let's update the timestamp in the comments section and video details to reflect when it was posted in a more human-readable format. Using YouTube as an example, a recently posted comment might display the time posted as "10 minutes ago" or "3 days ago". Apply this type of timestamp to your data without hardcoding the actual message.
 
-# Posting Comments Sprint 2
-To add another layer of functionality to the site, try adding the ability to post and delete comments. Regarding the technical implementation, the following requirements should be met:
+# Posting Comments 
+adding the ability to post and delete comments. The following requirements should be met:
 
 - When posting a comment, ensure that the page does not refresh.
 - You must `POST` a comment to the API.
 - If successful in posting the comment, render the new comment by sending a new request for the "Main Video" data.
 - After deleting a comment using the API endpoint, your comment section should update without refreshing the browser.
 
-# Sprint 3: Comments endpoints 
+# Comments endpoints 
 - Implement `POST` and `DELETE` endpoints 
   - `POST` /videos/:id/comments for creating a new comment
   - `DELETE` /videos/:videoId/comments/:commentId for deleting a comment
@@ -146,7 +141,7 @@ ________
  
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
@@ -193,24 +188,24 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
 ### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
 ### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
